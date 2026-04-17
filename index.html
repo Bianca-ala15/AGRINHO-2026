@@ -3,142 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioTrace | Rastreabilidade Sustentável</title>
-    <style>
-        :root {
-            --verde-agro: #2d5a27;
-            --verde-claro: #8bc34a;
-            --bege-terra: #f9f7f2;
-            --texto: #333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bege-terra);
-            color: var(--texto);
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--verde-claro);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-
-        .status-badge {
-            background-color: var(--verde-agro);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            display: inline-block;
-        }
-
-        .info-section {
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            color: var(--verde-agro);
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .data-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            background: #f1f8e9;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .data-item span {
-            display: block;
-            font-size: 0.8em;
-            color: #666;
-        }
-
-        .data-item strong {
-            color: var(--verde-agro);
-        }
-
-        .impact-box {
-            border-left: 4px solid var(--verde-claro);
-            padding-left: 15px;
-            margin-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.8em;
-            color: #888;
-        }
-    </style>
+    <title>Simulador de Estufa - Tomate-Cereja</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
     <header>
-        <h1>BioTrace 🌿</h1>
-        <div class="status-badge">Certificado de Origem Sustentável</div>
-        <p>Lote: <strong>#AGRO-2024-089</strong></p>
+        <h1>Simulador de Estufa - Tomate-Cereja</h1>
+        <p>Equilíbrio entre produção e meio ambiente</p>
     </header>
 
-    <section class="info-section">
-        <h2>📍 Origem do Produto</h2>
-        <div class="data-grid">
-            <div class="data-item">
-                <span>Fazenda</span>
-                <strong>Terra Viva</strong>
-            </div>
-            <div class="data-item">
-                <span>Localização</span>
-                <strong>Sorriso - MT</strong>
-            </div>
-            <div class="data-item">
-                <span>Produtor</span>
-                <strong>João da Silva</strong>
-            </div>
-            <div class="data-item">
-                <span>Colheita</span>
-                <strong>12/03/2024</strong>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section id="simulador">
+            <h2>Configurações da Estufa</h2>
+            <label>Temperatura (°C):
+                <input type="number" id="temperatura" value="25" min="15" max="35">
+            </label>
+            <label>Luz (horas/dia):
+                <input type="number" id="luz" value="12" min="6" max="18">
+            </label>
+            <label>Irrigação (L/dia):
+                <input type="number" id="irrigacao" value="1" min="0.1" max="5" step="0.1">
+            </label>
+            <label>Fertilizante:
+                <select id="fertilizante">
+                    <option value="organico">Orgânico</option>
+                    <option value="quimico">Químico</option>
+                </select>
+            </label>
+            <button onclick="simular()">Simular Crescimento</button>
+        </section>
 
-    <section class="info-section">
-        <h2>🌳 Compromisso Ambiental</h2>
-        <div class="impact-box">
-            <p>✅ <strong>Área Preservada:</strong> 35% da propriedade (Acima do mínimo legal).</p>
-            <p>💧 <strong>Uso de Água:</strong> Irrigação inteligente com redução de 20% no consumo.</p>
-            <p>🚫 <strong>Defensivos:</strong> Manejo biológico integrado utilizado neste lote.</p>
-        </div>
-    </section>
+        <section id="resultados">
+            <h2>Resultados da Simulação</h2>
+            <p id="crescimento">Crescimento: -</p>
+            <p id="impacto">Impacto ambiental: -</p>
+        </section>
+    </main>
 
-    <section class="info-section">
-        <h2>🔗 Verificação Blockchain</h2>
-        <p style="font-family: monospace; font-size: 0.7em; word-break: break-all; color: #666;">
-            Hash: 0x71C4B7AD8E105E92C397500113D562A034784F15
-        </p>
-    </section>
-
-    <footer>
-        <p>BioTrace - Tecnologia para um futuro sustentável.</p>
-    </footer>
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
